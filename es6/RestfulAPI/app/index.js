@@ -7,7 +7,6 @@ const http = require("http");
 const url = require("url");
 const stringDecoder = require("string_decoder");
 const config = require("./config");
-const _data = require("./lib/data");
 const handlers = require("./lib/handlers");
 const helpers = require("./lib/helpers");
 
