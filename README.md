@@ -1,5 +1,7 @@
 # The NodeJS Master Class
 
+![nodejs-v10.7.0](./resources/node-version.svg)
+
 Repository contains ES5 and ES6 sources for
 `The NodeJS Master Class`. It contains 3 modules:
 1. Rest API App
