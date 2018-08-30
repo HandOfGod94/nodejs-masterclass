@@ -4,12 +4,9 @@
 
 // Dependecies
 
-import fs from "fs";
-import path from "path";
-import helpers from "./helpers";
-import expose from "./expose";
-
-const __dirname = expose.__dirname;
+const fs = require("fs");
+const path = require("path");
+const helpers = require("./helpers");
 
 class Lib {
   constructor() {
@@ -28,8 +25,7 @@ class Lib {
     let stringData = JSON.stringify(data);
     let result = fs.promises
       .open(filePath, "wx")
-      .then(res => res.writeFile(stringData))
-      .catch(err => `Unable to create new user: ${err}`);
+      .then(res => res.writeFile(stringData));
     return result;
   }
 
@@ -57,11 +53,11 @@ class Lib {
   update(dir, file, data) {
     let filePath = path.join(this.baseDir, dir, file + ".json");
     let stringData = JSON.stringify(data);
-    let result = fs.promises
-      .open(filePath, "r+")
-      .then(res => res.truncate())
-      .then(res => res.writeFile(res.fd, stringData));
-
+    let result = fs.promises.truncate(filePath).then(res => {
+      return fs.promises
+        .open(filePath, "r+")
+        .then(res => res.writeFile(stringData));
+    });
     return result;
   }
 
@@ -79,4 +75,4 @@ class Lib {
 
 const lib = new Lib();
 
-export default lib;
+module.exports = lib;

@@ -11,8 +11,8 @@ Repository contains ES5 and ES6 sources for
 The ES5 codebase is without any of the npm dependencies
 and is using plain NodeJS
 
-The ES6 codebase uses ES6 features such as ES6 classes,
-modules, promises etc.
+The ES6 codebase uses ES6 features such as ES6 classes, promises etc.
+> Note: Removed ESM Modules, in favor CJS because of better support.
 
 ### How to run
 
@@ -21,5 +21,5 @@ modules, promises etc.
 node ./es5/<app_name>/app/index.js
 
 # To run es6 app
-node --experimental-modules ./es6/<app_name>/app/index.mjs
+node ./es6/<app_name>/app/index.js
 ```

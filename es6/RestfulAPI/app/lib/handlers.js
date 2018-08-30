@@ -3,8 +3,9 @@
  * TODO: Change it to class contructs
  */
 
-import _data from "./data";
-import helpers from "./helpers";
+// Dependecies
+const _data = require("./data");
+const helpers = require("./helpers");
 
 // create routingn handler
 let handlers = {};
@@ -162,9 +163,9 @@ handlers._users.put = function(data, callback) {
         .then(res => {
           _data
             .update("users", phone, res)
+            .then(res => callback(200))
             .catch(err => callback(500, { Error: "Could not update user" }));
         })
-        .then(res => callback(200))
         .catch(err => callback(400, { Error: "Specified user doesn't exist" }));
     } else {
       callback(400, { Error: "Missing fields to update" });
@@ -207,4 +208,4 @@ handlers.notFound = function(data, callback) {
   callback(404);
 };
 
-export default handlers;
+module.exports = handlers;

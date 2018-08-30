@@ -33,4 +33,4 @@ const environementToExport =
     ? environments[currentEnv]
     : environments.staging;
 
-export default environementToExport;
+module.exports = environementToExport;

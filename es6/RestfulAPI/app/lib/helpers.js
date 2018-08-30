@@ -3,8 +3,8 @@
  */
 
 // dependencies
-import crypto from "crypto";
-import config from "../config";
+const crypto = require("crypto");
+const config = require("../config");
 
 class Helpers {
   /**
@@ -74,4 +74,4 @@ class Helpers {
 
 const helpers = new Helpers();
 
-export default helpers;
+module.exports = helpers;
